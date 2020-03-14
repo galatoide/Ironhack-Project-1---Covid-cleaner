@@ -1,5 +1,5 @@
-let canvaas = document.getElementById('canvas');
-let ctx = canvaas.getContext('2d');
+let canvas = document.getElementById('canvas');
+let ctx = canvas.getContext('2d');
 
 
 
