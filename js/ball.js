@@ -1,22 +1,25 @@
 let x = canvas.width/2;
 let y = canvas.height-30;
 
-let speedX = 2;
-let speedY = -2;
+let ballRadius = 10; 
+
+let speedX = 4;
+let speedY = -4;
 
 function ball(){
     ctx.beginPath();
-    ctx.arc(x, y, 10, 0, Math.PI*2);
-    ctx.fillStyle = '#0095DD';
+    ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
+    // ctx.fillStyle = '#0095DD';
     ctx.fill();
     ctx.closePath;
 }
 
-function draw(){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ball();
-    x += speedX;
-    y += speedY;
+function getRandomColor() {
+    let letters = '0123456789ABCDEF'.split('');
+    let color = '#';
+    for (let i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
 }
-setInterval(draw, 10);
-// requestAnimationFrame(draw)
+// window.requestAnimationFrame(draw)
