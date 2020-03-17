@@ -1,13 +1,14 @@
 let barHeight = 10;
-let barWidth = 75;
-let barPosition = (canvas.width - barWidth) / 2;
+let barWidth = 100;
+let barPositionX = (canvas.width - barWidth) / 2;
+let barPositionY = canvas.height - 15;
 
 let  leftPressed = false
 let  rightPressed = false
 
 function bar(){
     ctx.beginPath();
-    ctx.rect(barPosition, canvas.height - barHeight, barWidth, barHeight);
+    ctx.rect(barPositionX, barPositionY, barWidth, barHeight);
     // ctx.fillStyle = 'red';
     ctx.fill();
     ctx.closePath();
@@ -36,15 +37,15 @@ function keyUpHandler(x) {
 
 function controls() {
     if(rightPressed) {
-        barPosition += 7;
-        if (barPosition + barWidth > canvas.width){
-            barPosition = canvas.width - barWidth;
+        barPositionX += 7;
+        if (barPositionX + barWidth > canvas.width){
+            barPositionX = canvas.width - barWidth;
         }
     }
     else if(leftPressed) {
-        barPosition -= 7;
-        if (barPosition < 0){
-            barPosition = 0;
+        barPositionX -= 7;
+        if (barPositionX < 0){
+            barPositionX = 0;
         }
     }
 }

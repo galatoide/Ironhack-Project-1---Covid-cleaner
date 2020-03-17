@@ -7,23 +7,33 @@ function collision(){
         speedX = -speedX;
         ctx.fillStyle = '#0075DD';
         ctx.fillStyle = getRandomColor();
-        console.log('Ball Position \nx:'+ x + ' y:' + y)
+        // console.log('Ball Position \nx:'+ x + ' y:' + y)
     }
     // change direction when hit top and bottom
-    if (y + speedY < ballRadius || y + speedY >canvas.height-ballRadius){
+    if (y + speedY < ballRadius){
         speedY = -speedY;
+        speedY +=0.1; //putting more speed on the ball
+        speedX +=0.1; //each time the bar hits the ball
         ctx.fillStyle = getRandomColor();
-        console.log('Ball Position \nx:'+ x + ' y:' + y)
+        // console.log('Ball Position \nx:'+ x + ' y:' + y)
+    } else if(y + speedY > canvas.height-ballRadius) {
+        if(x > barPositionX && x < barPositionX + barWidth) {
+            speedY = -speedY;
+        }
+        else {
+            // alert("GAME OVER");
+            document.location.reload();
+            clearInterval(interval); 
+            console.log('COLLISION')
+        }
     }
-
-
 }
 
 function draw(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    collision()
     ball();
     bar();
-    collision()
     controls()
     
     x += speedX;
@@ -31,6 +41,6 @@ function draw(){
 
     
 }
-setInterval(draw, 10);
+let interval = setInterval(draw, 10);
 
 console.log('testing')
