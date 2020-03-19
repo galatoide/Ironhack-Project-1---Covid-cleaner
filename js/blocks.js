@@ -34,11 +34,14 @@ function drawBlocks() {
 }
 
 function collisionDetection() {
-    for(var i=0; i<blockColumnCount; i++) {
-        for(var j=0; j<blockRowCount; j++) {
-            var b = blocks[i][j];
-            if(x > b.x && x < b.x+blockWidth && y > b.y && y < b.y+blockHeight) {
-                speedY = -speedY;
+    for(let i=0; i<blockColumnCount; i++) {
+        for(let j=0; j<blockRowCount; j++) {
+            let b = blocks[i][j];
+            if(b.status == 1) {
+                if(x > b.x && x < b.x+blockWidth && y > b.y && y < b.y+blockHeight) {
+                    speedY = -speedY;
+                    b.status = 0;
+                }
             }
         }
     }
