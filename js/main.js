@@ -34,7 +34,9 @@ function draw(){
     collision()
     ball();
     bar();
-    controls()
+    controls();
+    drawBlocks();
+    collisionDetection();
     
     x += speedX;
     y += speedY;
