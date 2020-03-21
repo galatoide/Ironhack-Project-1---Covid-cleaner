@@ -1,5 +1,8 @@
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
+let gameStatus = 'on';
+let animationId;
+
 
 function collision(){
     // change direction when hit left and right
@@ -37,12 +40,27 @@ function draw(){
     controls();
     drawBlocks();
     collisionDetection();
+    drawPoints();
     
     x += speedX;
     y += speedY;
 
     
 }
-let interval = setInterval(draw, 10);
+// let interval = setInterval(draw, 10);
 
-console.log('testing')
+function animation() {
+    draw();
+
+    animationId = window.requestAnimationFrame(() => {
+        if (gameStatus === "on") {
+          animation();
+        }
+        if (this.gameStatus === "game-over") {
+            window.cancelAnimationFrame(animation);
+            gameOver();
+          }
+    });
+}
+
+window.requestAnimationFrame(animation);

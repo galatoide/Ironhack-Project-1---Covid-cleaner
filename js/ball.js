@@ -3,8 +3,8 @@ let y = canvas.height-30;
 
 let ballRadius = 10; 
 
-let speedX = 4;
-let speedY = -4;
+let speedX = 10;  // 4
+let speedY = -10; // -4
 
 function ball(){
     ctx.beginPath();
