@@ -9,3 +9,16 @@ canvas{
     margin: 0 auto;
     border: 2px solid red;
 }
+
+#canvasScore    {
+    border: 2px solid blue;
+}
+
+.main{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: stretch;
+	align-content: stretch;
+}

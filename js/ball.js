@@ -22,4 +22,3 @@ function getRandomColor() {
     }
     return color;
 }
-// window.requestAnimationFrame(draw)

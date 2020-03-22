@@ -1,10 +1,10 @@
-let blockRowCount = 2;  //6
-let blockColumnCount = 1;  //10
-let blockWidth = 75;
-let blockHeight = 20;
-let blockPadding = 10;
-let blockOffsetTop = 30;
-let blockOffsetLeft = 30;
+let blockRowCount = 6;  //6
+let blockColumnCount = 10;  //10
+let blockWidth = 75;  //75
+let blockHeight = 20;  //20
+let blockPadding = 10; //10
+let blockTopStart = 30; //30
+let blockLeftStart = 20; //20
 
 let blocks = [];
 for(let i=0; i<blockColumnCount; i++) {
@@ -18,8 +18,8 @@ function drawBlocks() {
     for(let i=0; i<blockColumnCount; i++) {
         for(let j=0; j<blockRowCount; j++) {
             if(blocks[i][j].status == 1) {
-                let blockX = (i*(blockWidth+blockPadding))+blockOffsetLeft;
-                let blockY = (j*(blockHeight+blockPadding))+blockOffsetTop;
+                let blockX = (i*(blockWidth+blockPadding))+blockLeftStart;
+                let blockY = (j*(blockHeight+blockPadding))+blockTopStart;
                 
                 blocks[i][j].x = blockX;
                 blocks[i][j].y = blockY;
@@ -33,6 +33,7 @@ function drawBlocks() {
     }
 }
 
+// collision between ball and blocks
 function collisionDetection() {
     for(let i=0; i<blockColumnCount; i++) {
         for(let j=0; j<blockRowCount; j++) {
@@ -41,7 +42,7 @@ function collisionDetection() {
                 if(x > b.x && x < b.x+blockWidth && y > b.y && y < b.y+blockHeight) {
                     speedY = -speedY;
                     b.status = 0;
-                    points++;
+                    points+= 1;
 
                     if (points === blockRowCount * blockColumnCount) {
                         // ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -54,20 +55,3 @@ function collisionDetection() {
         }
     }
 }
-
-function gameOver() {
-    // ctx.save();
-    ctx.fillStyle = "black";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "red";
-    ctx.font = "30px Arial";
-
-    ctx.fillText(`GAME OVER!`, canvas.width / 3, canvas.height / 3);
-    if (points <= 1){
-        ctx.fillText(`YOU HIT ${points} BLOCK!`, canvas.width / 3,canvas.height / 2);
-    }
-    if (points > 1){
-        ctx.fillText(`YOU HIT ${points} BLOCKS!`, canvas.width / 3,canvas.height / 2);
-    };
-    // ctx.restore();
-  }

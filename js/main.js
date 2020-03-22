@@ -1,6 +1,6 @@
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
-let gameStatus = 'on';
+let gameStatus = 'game-on';
 let animationId;
 
 
@@ -8,7 +8,7 @@ function collision(){
     // change direction when hit left and right
     if (x + speedX < ballRadius || x + speedX > canvas.width-ballRadius){
         speedX = -speedX;
-        ctx.fillStyle = '#0075DD';
+        // ctx.fillStyle = '#0075DD';
         ctx.fillStyle = getRandomColor();
         // console.log('Ball Position \nx:'+ x + ' y:' + y)
     }
@@ -24,9 +24,26 @@ function collision(){
             speedY = -speedY;
         }
         else {
-            // alert("GAME OVER");
-            document.location.reload();
-            clearInterval(interval); 
+            lives--;
+            if(!lives) {
+                gameStatus = 'game-over';
+                gameOver();
+                // document.location.reload();
+                // clearInterval(interval); // Needed for Chrome to end game
+            }
+            else {
+                x = canvas.width/2;
+                y = canvas.height-30;
+                speedX = 10;
+                speedY= -10;
+                barPositionX = (canvas.width-barWidth)/2;
+            }
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            gameOver();
+            // document.location.reload();  //restart the canvas
+            // clearInterval(animation); 
+            window.cancelAnimationFrame(animation)
             console.log('COLLISION')
         }
     }
@@ -41,26 +58,50 @@ function draw(){
     drawBlocks();
     collisionDetection();
     drawPoints();
+    drawLives();
     
     x += speedX;
     y += speedY;
 
     
 }
-// let interval = setInterval(draw, 10);
+// Control the blocks going down
+function updateBlocks() {
+    blockTopStart += 1;
+}
+    
+    setInterval(updateBlocks, 1000)
+    
 
 function animation() {
     draw();
+    // updateBlocks();
+
+if (animationId % 120 === 0){
+    // console.log('HELLO')
+}
 
     animationId = window.requestAnimationFrame(() => {
-        if (gameStatus === "on") {
+        if (gameStatus === "game-on") {
           animation();
         }
-        if (this.gameStatus === "game-over") {
-            window.cancelAnimationFrame(animation);
+        if (gameStatus === "game-over") {
+            window.cancelAnimationFrame(animationId);
             gameOver();
           }
     });
 }
 
 window.requestAnimationFrame(animation);
+
+
+// click to restart!
+function restart() {
+    if (gameStatus === 'game-over'){
+            gameStatus = 'game-on';
+            document.location.reload();
+
+    }
+}
+document.addEventListener("click", restart, true);
+

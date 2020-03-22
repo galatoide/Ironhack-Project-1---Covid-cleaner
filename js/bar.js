@@ -1,5 +1,5 @@
-let barHeight = 10;
-let barWidth = 1000;
+let barHeight = 10; //10
+let barWidth = 100; //100
 let barPositionX = (canvas.width - barWidth) / 2;
 let barPositionY = canvas.height - 15;
 
@@ -18,6 +18,7 @@ function bar(){
 
 document.addEventListener('keydown', keyDownHandler, false);
 document.addEventListener('keyup', keyUpHandler, false);
+document.addEventListener("mousemove", mouseTrack, false);
 
 function keyDownHandler(x) {
     if ( x.key === 'Left' || x.key === 'ArrowLeft'){
@@ -32,6 +33,13 @@ function keyUpHandler(x) {
         leftPressed = false;
     } else if ( x.key === 'Right' || x.key === 'ArrowRight'){
         rightPressed = false;
+    }
+}
+
+function mouseTrack(x) {
+    var relativeX = x.clientX - canvas.offsetLeft;
+    if(relativeX > 0 && relativeX < canvas.width) {
+        barPositionX = relativeX - barWidth/2;
     }
 }
 
