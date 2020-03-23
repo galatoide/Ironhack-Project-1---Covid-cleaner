@@ -1,9 +1,9 @@
-let blockRowCount = 6;  //6
+let blockRowCount = 26;  //6
 let blockColumnCount = 10;  //10
 let blockWidth = 75;  //75
 let blockHeight = 20;  //20
 let blockPadding = 10; //10
-let blockTopStart = 30; //30
+let blockTopStart = -700; //30
 let blockLeftStart = 20; //20
 
 let blocks = [];

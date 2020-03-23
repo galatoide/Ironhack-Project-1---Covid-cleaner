@@ -27,9 +27,8 @@ function collision(){
             lives--;
             if(!lives) {
                 gameStatus = 'game-over';
-                gameOver();
-                // document.location.reload();
-                // clearInterval(interval); // Needed for Chrome to end game
+                
+                
             }
             else {
                 x = canvas.width/2;
@@ -39,12 +38,12 @@ function collision(){
                 barPositionX = (canvas.width-barWidth)/2;
             }
 
-            ctx.clearRect(0, 0, canvas.width, canvas.height)
-            gameOver();
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
             // document.location.reload();  //restart the canvas
             // clearInterval(animation); 
             window.cancelAnimationFrame(animation)
-            console.log('COLLISION')
+            console.log('BALL FELL')
         }
     }
 }
@@ -59,15 +58,14 @@ function draw(){
     collisionDetection();
     drawPoints();
     drawLives();
-    
+
     x += speedX;
     y += speedY;
 
-    
 }
 // Control the blocks going down
 function updateBlocks() {
-    blockTopStart += 1;
+    blockTopStart += 10;
 }
     
     setInterval(updateBlocks, 1000)
@@ -75,9 +73,9 @@ function updateBlocks() {
 
 function animation() {
     draw();
-    // updateBlocks();
 
 if (animationId % 120 === 0){
+    blocks2.push()
     // console.log('HELLO')
 }
 

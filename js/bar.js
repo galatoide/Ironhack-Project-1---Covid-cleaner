@@ -1,5 +1,5 @@
 let barHeight = 10; //10
-let barWidth = 100; //100
+let barWidth = 10000; //100
 let barPositionX = (canvas.width - barWidth) / 2;
 let barPositionY = canvas.height - 15;
 

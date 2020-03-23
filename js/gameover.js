@@ -8,20 +8,22 @@ function gameOver() {
     ctx.save();
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "red";
+    ctx.fillStyle = "white";
     ctx.font = "60px Arial";
     
     ctx.drawImage(gameOverImage,0,0, canvas.width, canvas.height)  //game over image
     
     // ctx.fillText(`GAME OVER!`, canvas.width / 3, canvas.height / 3);
-    ctx.restore();
+    // ctx.restore();
     if (points <= 1){
-        ctx.fillText(`YOU HIT ${points} BLOCK!`, canvas.width / 3,canvas.height - 150 );
+        ctx.fillText(`YOU HIT ${points} BLOCK!`, canvas.width - 700,canvas.height - 500 );
     }
     if (points > 1){
-        ctx.fillText(`YOU HIT ${points} BLOCKS!`, canvas.width / 3,canvas.height - 200);
+        ctx.fillText(`YOU HIT ${points} BLOCKS!`, canvas.width - 700,canvas.height - 500);
     };
 
-    ctx.fillText(`CLICK TO TRY AGAIN`, canvas.width / 3, canvas.height - 250);
+    ctx.fillText(`CLICK TO TRY AGAIN`, canvas.width - 750, canvas.height - 100);
     ctx.restore();
+
+    console.log('GAME OVER')
   }
