@@ -15,13 +15,18 @@ function collision(){
     // change direction when hit top and bottom
     if (y + speedY < ballRadius){
         speedY = -speedY;
-        speedY +=0.1; //putting more speed on the ball
-        speedX +=0.1; //each time the bar hits the ball
+        // speedY +=3; //putting more speed on the ball
+        // speedX +=-3; //each time the bar hits the ball
         ctx.fillStyle = getRandomColor();
         // console.log('Ball Position \nx:'+ x + ' y:' + y)
-    } else if(y + speedY > canvas.height-ballRadius) {
+    } else if(y + speedY > canvas.height) {
         if(x > barPositionX && x < barPositionX + barWidth) {
-            speedY = -speedY;
+            if(y = y - barHeight){
+
+                speedY = -speedY;
+                speedY +=-0.05;
+                speedX +=0.05;
+            }
         }
         else {
             lives--;
@@ -68,14 +73,14 @@ function updateBlocks() {
     blockTopStart += 10;
 }
     
-    setInterval(updateBlocks, 1000)
+    setInterval(updateBlocks, 2000)
     
 
 function animation() {
     draw();
 
 if (animationId % 120 === 0){
-    blocks2.push()
+    // blocks2.push()
     // console.log('HELLO')
 }
 
