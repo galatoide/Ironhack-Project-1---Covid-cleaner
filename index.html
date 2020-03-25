@@ -7,25 +7,29 @@
     <title>Spacebar tryout</title>
 </head>
 <body>
-    <div class="canvas">
+    <div class="button">
+        <button type="button" onclick="myFunction()">START</button>
+    </div>
+    <div id="big-canvas">
         <div>
-            <canvas id="canvas3" width="880" height="80"></canvas>
+            <canvas id="canvas2" width="880" height="80"></canvas>
         </div>
         <div>
-            <canvas id="canvas" width="880" height="620"></canvas>
+            <canvas id="canvas" width="880" height="600"></canvas>
         </div>
         <!-- <div>
-            <canvas id="canvas2" width="120" height="620"></canvas>
+            <canvas id="canvas3" width="120" height="620"></canvas>
         </div> -->
     </div>
     
+    <script src="js/startGame.js"></script>
+    <script src="js/score.js"></script>
+    <script src="js/lives.js"></script>
     <script src="js/main.js"></script>
     <script src="js/ball.js"></script>
     <script src="js/bar.js"></script>
     <!-- <script src="js/bar2.js"></script> -->
     <script src="js/blocks.js"></script>
-    <script src="js/score.js"></script>
-    <script src="js/lives.js"></script>
     <script src="js/gameover.js"></script>
 
 </body>

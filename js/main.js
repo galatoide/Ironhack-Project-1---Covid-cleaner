@@ -5,10 +5,19 @@ let animationId;
 
 
 function collision(){
+
+    // if(ballRight >= barLeft || ballLeft <= barRight){
+    //     speedX = -speedX
+    //     console.log('BALL COLLISION');
+    //     console.log('Ball Position \nx:'+ x + ' y:' + y)
+    // }
+    // if(ballTop >= barBottom || ballBottom <= barTop){
+    //     speedY = -speedY
+    // }
+
     // change direction when hit left and right
     if (x + speedX < ballRadius || x + speedX > canvas.width-ballRadius){
         speedX = -speedX;
-        // ctx.fillStyle = '#0075DD';
         ctx.fillStyle = getRandomColor();
         // console.log('Ball Position \nx:'+ x + ' y:' + y)
     }
@@ -32,8 +41,7 @@ function collision(){
             lives--;
             if(!lives) {
                 gameStatus = 'game-over';
-                
-                
+                   
             }
             else {
                 x = canvas.width/2;
@@ -55,6 +63,7 @@ function collision(){
 
 function draw(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
     collision()
     ball();
     bar();

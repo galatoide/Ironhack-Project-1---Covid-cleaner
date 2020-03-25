@@ -1,7 +1,21 @@
 let barHeight = 10; //10
 let barWidth = 150; //100
 let barPositionX = (canvas.width - barWidth) / 2;
-let barPositionY = canvas.height - 15;
+let barPositionY = canvas.height - 10;; 
+
+// let barLeft = barPositionX;
+// let barRight = barPositionX + barWidth;
+// let barTop = barPositionY;
+// let barBottom = barPositionY + barHeight;
+
+// let ballLeft = x - ballRadius;
+// let ballRight = x+ ballRadius;
+// let ballTop = y - ballRadius;
+// let ballBottom = y + ballRadius;
+
+// let flipX = (ballRight >= barLeft || ballLeft <= barRight);
+// let flipY = (ballTop >= barBottom || ballBottom <= barTop);
+
 
 let  leftPressed = false
 let  rightPressed = false
@@ -10,6 +24,7 @@ function bar(){
     ctx.beginPath();
     ctx.rect(barPositionX, barPositionY, barWidth, barHeight);
     // ctx.fillStyle = 'red';
+    
     ctx.fill();
     ctx.closePath();
 
@@ -37,7 +52,7 @@ function keyUpHandler(x) {
 }
 
 function mouseTrack(x) {
-    var relativeX = x.clientX - canvas.offsetLeft;
+    let relativeX = x.clientX - canvas.offsetLeft;
     if(relativeX > 0 && relativeX < canvas.width) {
         barPositionX = relativeX - barWidth/2;
     }

@@ -6,17 +6,18 @@ ballImage.src = '/images/vírus.png';
 
 let ballRadius = 10; 
 
-let speedX = 10;  // 4
+let speedX = 10;  // 
 let speedY = -10; // -4
 
 function ball(){
     ctx.save()
     ctx.beginPath();
-    // ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
-    ctx.drawImage(ballImage,x,y, 30, 30)
+    ctx.fillStyle = getRandomColor();
+    ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
+    // ctx.drawImage(ballImage,x,y, 30, 30)
     ctx.restore()
 
-    // ctx.fill();
+    ctx.fill();
     ctx.closePath;
 }
 

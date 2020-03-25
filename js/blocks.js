@@ -24,9 +24,10 @@ function drawBlocks() {
                 blocks[i][j].x = blockX;
                 blocks[i][j].y = blockY;
                 ctx.beginPath();
-                ctx.rect(blockX, blockY, blockWidth, blockHeight);
+                // ctx.rect(blockX, blockY, blockWidth, blockHeight);
                 // ctx.fillStyle = "#0095DD";
-                ctx.fill();
+                ctx.drawImage(ballImage,blockX,blockY, 30, 30)
+                // ctx.fill();
                 ctx.closePath();
             }
         }
