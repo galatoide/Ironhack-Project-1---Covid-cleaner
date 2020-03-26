@@ -9,6 +9,7 @@ canvas{
     display: block;
     margin: 0 auto;
     border: 2px solid red;
+    border-bottom: none;
 }
 
 #canvasScore    {
@@ -24,11 +25,16 @@ canvas{
 	align-content: stretch;
 }
 
-#canvas{
+#big-canvas{
     display: flex;
     /* justify-content: center; */
     flex-direction: column;
 }
+
+#canvas{
+    padding-bottom: 5px;
+}
+
 .button{
     display: flex;
     align-items: center;
