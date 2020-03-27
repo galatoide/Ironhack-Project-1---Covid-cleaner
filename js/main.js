@@ -4,8 +4,8 @@ let gameStatus = 'game-off';
 let animationId;
 
 let backgroundMusic = new Audio("/sounds/House Fire (120 bpm).wav")
-    // backgroundMusic.play();
-    // backgroundMusic.loop = true;
+    backgroundMusic.play();
+    backgroundMusic.loop = true;
 let hitBarSound = new Audio("/sounds/hit-bar2.mp3");
 let hitBlockSound = new Audio("/sounds/hit-block.mp3")
 
@@ -87,7 +87,7 @@ function draw(){
 }
 // Control the blocks going down
 function updateBlocks() {
-    blockTopStart += 10;
+    blockTopStart += 5;
 }
 
 // setInterval(updateBlocks, 2000)
@@ -142,3 +142,12 @@ document.addEventListener("click", restart, true);
         }
     }
     
+if (gameStatus === 'game-off'){
+    ctx.save();
+    ctx.fillStyle = "white";
+    ctx.font = "60px exo2";
+    ctx.fillText(`Click the start button`, canvas.width - 750, 500 );
+    ctx.fillText(`to begin`, canvas.width - 550, 550 );
+    ctx.fill();
+    ctx.restore();
+}

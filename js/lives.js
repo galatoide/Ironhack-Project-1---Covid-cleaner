@@ -1,11 +1,12 @@
 livesImage = new Image();
 livesImage.src = '/images/lives.png'
 
-let lives = 1;
+let lives = 3;
 
 function drawLives(){
     ctx2.font = "36px exo2";
-    ctx2.fillText("Lives: ", canvas2.width-850, 50);
+    ctx2.fillStyle = 'white';
+    ctx2.fillText("Lives: ", canvas2.width-860, 50);
 
     if (lives == 3) {
         ctx2.drawImage(livesImage, canvas2.width-770, 0, 70,70)
