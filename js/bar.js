@@ -60,13 +60,13 @@ function mouseTrack(x) {
 
 function controls() {
     if(rightPressed) {
-        barPositionX += 7;
+        barPositionX += 11;
         if (barPositionX + barWidth > canvas.width){
             barPositionX = canvas.width - barWidth;
         }
     }
     else if(leftPressed) {
-        barPositionX -= 7;
+        barPositionX -= 11;
         if (barPositionX < 0){
             barPositionX = 0;
         }
