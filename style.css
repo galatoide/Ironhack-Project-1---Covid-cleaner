@@ -2,10 +2,18 @@
     padding: 0;
     margin: 0;
     margin-top: 0px;
+    background-color: black;
 }
 
+@font-face {
+    font-family: exo2;
+    src: url('/Fonts/exo-2/Exo2-ExtraBold.otf');
+  }
+
+
 canvas{
-    background: #eee;
+    background: rgb(112, 107, 107);
+    /* background-image: url(/images/background.gif); */
     display: block;
     margin: 0 auto;
     border: 2px solid red;
@@ -35,7 +43,7 @@ canvas{
     padding-bottom: 5px;
 }
 
-.button{
+#button{
     display: flex;
     align-items: center;
     justify-content: center;

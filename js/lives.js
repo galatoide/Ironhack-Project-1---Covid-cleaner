@@ -1,10 +1,10 @@
 livesImage = new Image();
 livesImage.src = '/images/lives.png'
 
-let lives = 3;
+let lives = 1;
 
 function drawLives(){
-    ctx2.font = "36px Arial";
+    ctx2.font = "36px exo2";
     ctx2.fillText("Lives: ", canvas2.width-850, 50);
 
     if (lives == 3) {
@@ -20,7 +20,7 @@ function drawLives(){
 
 
     // ctx2.save();
-    // ctx2.font = "16px Arial";
+    // ctx2.font = "16px exo2";
     // ctx2.fillStyle = getRandomColor();
     // ctx2.fillText("Lives: "+lives, canvas.width-65, 20);
     // ctx2.drawImage(livesImage, canvas2.width-65, 0, 70,70)

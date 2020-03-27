@@ -1,10 +1,17 @@
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
-let gameStatus = 'game-on';
+let gameStatus = 'game-off';
 let animationId;
+
+let backgroundMusic = new Audio("/sounds/House Fire (120 bpm).wav")
+    // backgroundMusic.play();
+    // backgroundMusic.loop = true;
+let hitBarSound = new Audio("/sounds/hit-bar2.mp3");
+let hitBlockSound = new Audio("/sounds/hit-block.mp3")
 
 
 function collision(){
+
 
     // if(ballRight >= barLeft || ballLeft <= barRight){
     //     speedX = -speedX
@@ -24,6 +31,7 @@ function collision(){
     // change direction when hit top and bottom
     if (y + speedY < ballRadius){
         speedY = -speedY;
+        // hitBlockSound.play();
         // speedY +=3; //putting more speed on the ball
         // speedX +=-3; //each time the bar hits the ball
         ctx.fillStyle = getRandomColor();
@@ -31,7 +39,7 @@ function collision(){
     } else if(y + speedY > canvas.height) {
         if(x > barPositionX && x < barPositionX + barWidth) {
             if(y = y - barHeight){
-
+                hitBarSound.play();
                 speedY = -speedY;
                 speedY +=-0.05;
                 speedX +=0.05;
@@ -68,7 +76,7 @@ function draw(){
     ball();
     bar();
     controls();
-    drawBlocks();
+    // drawBlocks();
     collisionDetection();
     drawPoints();
     drawLives();
@@ -81,17 +89,20 @@ function draw(){
 function updateBlocks() {
     blockTopStart += 10;
 }
-    
-    setInterval(updateBlocks, 2000)
+
+// setInterval(updateBlocks, 2000)
     
 
 function animation() {
-    draw();
+    
 
-if (animationId % 120 === 0){
-    // blocks2.push()
-    // console.log('HELLO')
-}
+    draw();
+    drawBlocks();
+
+    if (animationId % 120 === 0){
+        // blocks2.push()
+        // console.log('HELLO')
+    }
 
     animationId = window.requestAnimationFrame(() => {
         if (gameStatus === "game-on") {
@@ -100,11 +111,18 @@ if (animationId % 120 === 0){
         if (gameStatus === "game-over") {
             window.cancelAnimationFrame(animationId);
             gameOver();
-          }
+            backgroundMusic.pause();
+            // document.addEventListener("click", startGame, true);
+        }
+        if(gameStatus === 'paused'){
+            document.addEventListener("click", startGame, true);
+            startGame()
+            // document.addEventListener("click", startBlocks, true);
+        }
     });
 }
 
-window.requestAnimationFrame(animation);
+// window.requestAnimationFrame(animation);   //this was before I created the startGame function
 
 
 // click to restart!
@@ -112,8 +130,15 @@ function restart() {
     if (gameStatus === 'game-over'){
             gameStatus = 'game-on';
             document.location.reload();
-
     }
 }
 document.addEventListener("click", restart, true);
 
+    function startBlocks(){
+        if(gameStatus === 'game-on'){
+            drawBlocks();
+            setInterval(updateBlocks, 2000)
+            window.requestAnimationFrame(drawBlocks)
+        }
+    }
+    

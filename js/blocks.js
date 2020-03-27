@@ -44,12 +44,13 @@ function collisionDetection() {
                     speedY = -speedY;
                     b.status = 0;
                     points+= 1;
+                    hitBlockSound.play();
 
                     if (points === blockRowCount * blockColumnCount) {
                         // ctx.clearRect(0, 0, canvas.width, canvas.height)
                         gameOver();
                         console.log('GAME OVER');
-                        gameStatus = 'game-over'
+                        gameStatus = 'game-over';
                     }
                 }
             }
