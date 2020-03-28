@@ -1,1 +1,1 @@
-# Ironhack-Project-1---Spacebar-Destroyer
+# Ironhack-Project-1---COVID Cleaner
