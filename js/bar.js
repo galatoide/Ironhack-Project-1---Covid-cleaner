@@ -21,12 +21,14 @@ let  leftPressed = false
 let  rightPressed = false
 
 function bar(){
+    ctx.save();
     ctx.beginPath();
     ctx.rect(barPositionX, barPositionY, barWidth, barHeight);
-    // ctx.fillStyle = 'red';
+    ctx.fillStyle = 'white';
     
     ctx.fill();
     ctx.closePath();
+    ctx.restore();
 
 
 }
