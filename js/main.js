@@ -7,7 +7,8 @@ let backgroundMusic = new Audio("/sounds/House Fire (120 bpm).wav")
     backgroundMusic.play();
     backgroundMusic.loop = true;
 let hitBarSound = new Audio("/sounds/hit-bar2.mp3");
-let hitBlockSound = new Audio("/sounds/hit-block.mp3")
+let hitBlockSound = new Audio("/sounds/hit-block.mp3");
+let ballFellSound = new Audio('/sounds/ball-fall.mp3')
 
 
 function collision(){
@@ -63,7 +64,8 @@ function collision(){
             
             // document.location.reload();  //restart the canvas
             // clearInterval(animation); 
-            window.cancelAnimationFrame(animation)
+            window.cancelAnimationFrame(animation);
+            ballFellSound.play();
             console.log('BALL FELL')
         }
     }

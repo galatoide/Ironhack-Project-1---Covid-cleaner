@@ -4,7 +4,7 @@ let blockWidth = 75;  //75
 let blockHeight = 20;  //20
 let blockPadding = 10; //10
 let blockTopStart = -740; //30
-let blockLeftStart = 20; //20
+let blockLeftStart = 40; //20
 
 let blocks = [];
 for(let i=0; i<blockColumnCount; i++) {

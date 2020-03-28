@@ -6,17 +6,17 @@ let lives = 3;
 function drawLives(){
     ctx2.font = "36px exo2";
     ctx2.fillStyle = 'white';
-    ctx2.fillText("Lives: ", canvas2.width-860, 50);
+    ctx2.fillText("Lives: ", canvas2.width-870, 50);
 
     if (lives == 3) {
-        ctx2.drawImage(livesImage, canvas2.width-770, 0, 70,70)
-        ctx2.drawImage(livesImage, canvas2.width-720, 0, 70,70)
-        ctx2.drawImage(livesImage, canvas2.width-670, 0, 70,70)
+        ctx2.drawImage(livesImage, canvas2.width-780, 0, 70,70)
+        ctx2.drawImage(livesImage, canvas2.width-730, 0, 70,70)
+        ctx2.drawImage(livesImage, canvas2.width-680, 0, 70,70)
     } else if (lives == 2){
-        ctx2.drawImage(livesImage, canvas2.width-770, 0, 70,70)
-        ctx2.drawImage(livesImage, canvas2.width-720, 0, 70,70)
+        ctx2.drawImage(livesImage, canvas2.width-780, 0, 70,70)
+        ctx2.drawImage(livesImage, canvas2.width-730, 0, 70,70)
     } else if (lives == 1){
-        ctx2.drawImage(livesImage, canvas2.width-770, 0, 70,70)
+        ctx2.drawImage(livesImage, canvas2.width-780, 0, 70,70)
     }
 
 
