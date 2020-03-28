@@ -19,10 +19,10 @@ function gameOver() {
     // ctx.fillText(`GAME OVER!`, canvas.width / 3, canvas.height / 3);
     // ctx.restore();
     if (points <= 1){
-        ctx.fillText(`YOU KILLED ${points} VÍRUS!`, canvas.width - 730,canvas.height - 500 );
+        ctx.fillText(`YOU KILLED ${points} VÍRUS!`, canvas.width - 735,canvas.height - 500 );
     }
     if (points > 1){
-        ctx.fillText(`YOU KILLED ${points} VÍRUS!`, canvas.width - 730,canvas.height - 500);
+        ctx.fillText(`YOU KILLED ${points} VÍRUSES!`, canvas.width - 740,canvas.height - 500);
     };
 
     ctx.fillText(`CLICK START TO TRY AGAIN`, canvas.width - 820, canvas.height - 100);
